@@ -23,5 +23,9 @@ export const RegistrationSchema = new Schema({
     created_At : {
         type:Date,
         default:Date.now
+    },
+    status: {
+        type: String,
+        default:"Active",
     }
 })

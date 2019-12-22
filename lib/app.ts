@@ -12,12 +12,9 @@ class App {
         this.mongoSetUp();
         this.app = express();
         this.config();
-        this.initializeErrorHandling();
-        this.app.use(function (req, res, next) {
-            res.header('Content-Type', 'application/json');
-            next();
-        });
+       
         this.registrationRoute.routes(this.app);
+        this.initializeErrorHandling();
     }
 
     private initializeErrorHandling() {
@@ -33,7 +30,7 @@ class App {
         this.app.use(bodyParser.json({
             limit:"50mb"
         }));
-       this.app.use(bodyParser.urlencoded({ extended: false }));
+       this.app.use(bodyParser.urlencoded());
         
     }
 }
